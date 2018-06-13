@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->namespace('api')->group(function() {
+
+    Route::get('/schemes/garage/activate', 'GarageController@activate')->name('api.scheme.garage.activate');
+    Route::get('/schemes/garage/status', 'GarageController@status')->name('api.scheme.garage.status');
+
+
 });
