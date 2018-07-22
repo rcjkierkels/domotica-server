@@ -11,7 +11,7 @@
 |
 */
 
-Route::middleware('auth:api')->namespace('api')->group(function() {
+Route::middleware('auth:api')->namespace('Api')->group(function() {
 
     Route::get('/schemes/garage/activate', 'GarageController@activate')->name('api.scheme.garage.activate');
     Route::get('/schemes/garage/status', 'GarageController@status')->name('api.scheme.garage.status');
