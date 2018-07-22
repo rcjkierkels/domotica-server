@@ -35,7 +35,7 @@ class GarageController extends Controller
 
     public function activate()
     {
-        $this->taskRepository->createIfNotAlreadyRunning($this->client, 'watchSwitch', true);
+        $this->taskRepository->createIfNotAlreadyRunning($this->client, 'WatchSwitch', true);
     }
 
     public function status()
