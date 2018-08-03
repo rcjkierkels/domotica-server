@@ -9,6 +9,7 @@ class TestController extends Controller
 {
     public function getLastEvent()
     {
+        header("Access-Control-Allow-Origin: *");
         $lastEvent = Event::query()->orderBy('id', 'desc')->first();
         if (empty($lastEvent)) {
             echo '';
