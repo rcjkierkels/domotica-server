@@ -21,7 +21,9 @@ class CreateTasksTable extends Migration
             $table->integer('running')->default(0);
             $table->boolean('keep');
             $table->mediumText('data')->nullable();
+            $table->dateTime('last_error_at');
             $table->timestamps();
+            $table->index('running', 'keep', 'name');
         });
     }
 

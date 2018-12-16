@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('event');
             $table->mediumText('data');
             $table->timestamps();
+            $table->index('client_id', 'event');
         });
     }
 
