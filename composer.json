@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "bensampo/laravel-enum": "^1.16",
         "boaideas/laravel-cli-create-user": "^1.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",

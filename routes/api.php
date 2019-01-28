@@ -13,8 +13,13 @@
 
 Route::middleware('auth:api')->namespace('Api')->group(function() {
 
-    Route::get('/schemes/garage/activate', 'GarageController@activate')->name('api.scheme.garage.activate');
-    Route::get('/schemes/garage/status', 'GarageController@status')->name('api.scheme.garage.status');
+    Route::get('/jobs', 'JobController@index')->name('api.jobs.index');
+    Route::post('/jobs/{job}/subscribe', 'JobController@subscribe')->name('api.jobs.subscribe');
+    Route::delete('/jobs/{job}/subscribe', 'JobController@unsubscribe')->name('api.jobs.unsubscribe');
+
+    Route::post('/actions/{action}/subscribe', 'ActionController@subscribe')->name('api.actions.subscribe');
+
+    Route::post('/users', 'UserController@update')->name('api.users.update');
 
 
 });

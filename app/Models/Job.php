@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Job extends Model
 {
-    protected $table = 'events';
+
+    protected $table = 'jobs';
 
     protected $guarded = [];
 
     public $timestamps = true;
 
-    public function getDataAttribute($data)
+    public function tasks()
     {
-        return json_decode($data);
+        return $this->belongsToMany(Task::class);
     }
 
 }

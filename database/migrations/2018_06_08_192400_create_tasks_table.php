@@ -15,15 +15,16 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_id')->unique();
+            $table->integer('client_id');
             $table->string('name');
             $table->integer('interval')->default(1000); //msec
             $table->integer('running')->default(0);
             $table->boolean('keep');
             $table->mediumText('data')->nullable();
-            $table->dateTime('last_error_at');
+            $table->boolean('error')->default(0);
+            $table->integer('error_log_id')->nullable();
             $table->timestamps();
-            $table->index('running', 'keep', 'name');
+            $table->index(['running', 'keep', 'name', 'error']);
         });
     }
 

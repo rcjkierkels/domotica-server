@@ -18,8 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('device_uuid')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->index(['email','device_uuid']);
         });
     }
 
