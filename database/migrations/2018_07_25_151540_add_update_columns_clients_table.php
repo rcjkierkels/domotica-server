@@ -17,6 +17,7 @@ class AddUpdateColumnsClientsTable extends Migration
             $table->string('last_commit')->after('location')->nullable();
             $table->dateTime('last_update_check')->after('last_commit')->nullable();
             $table->dateTime('last_update_code')->after('last_update_check')->nullable();
+            $table->dateTime('last_task_check')->after('location')->nullable();
         });
     }
 
@@ -31,6 +32,7 @@ class AddUpdateColumnsClientsTable extends Migration
             $table->dropColumn('last_commit');
             $table->dropColumn('last_update_check');
             $table->dropColumn('last_update_code');
+            $table->dropColumn('location');
         });
     }
 }

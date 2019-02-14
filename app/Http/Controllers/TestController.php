@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function getLastEvent()
+    public function index()
     {
-        header("Access-Control-Allow-Origin: *");
-        $lastEvent = Event::query()->orderBy('id', 'desc')->first();
-        if (empty($lastEvent)) {
-            echo '';
-            exit;
-        }
-        echo $lastEvent->data;
-        exit;
+        $test = Attachment::orderby('id', 'desc')->first();
+
+        header('Content-Type:'.$test->mime_type);
+        header('Content-Length: ' . strlen($test->data));
+
+        echo $test->data;
     }
 }

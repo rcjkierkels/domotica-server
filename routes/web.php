@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/test', 'TestController@getLastEvent')->name('test');
+Route::get('/test', 'TestController@index')->name('test');
