@@ -22,4 +22,9 @@ Route::middleware('auth:api')->namespace('Api')->group(function() {
     Route::post('/users', 'UserController@update')->name('api.users.update');
 
 
+    /** Temp */
+    Route::get('/photo', 'EventController@getLastPhoto')->name('api.events.get.photo');
+    Route::post('/photo', 'EventController@takePhoto')->name('api.events.take.photo');
+
+
 });

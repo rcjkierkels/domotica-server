@@ -26,6 +26,4 @@ class EventRepository
         return $event->orderBy('created_at', 'desc')->first();
     }
 
-
-
 }
